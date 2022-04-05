@@ -1,9 +1,10 @@
 import * as React from 'react';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import Fab from '@mui/material/Fab';
 import Video from './Video';
-import VideoUpload from './VideoUpload';
-import SubtitleUpload from './SubtitleUpload';
+import Upload from './Upload';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ export default class App extends React.Component {
     };
     this.handleVideoUpload = this.handleVideoUpload.bind(this);
     this.handleSubtitleUpload = this.handleSubtitleUpload.bind(this);
+    this.handleGoButtonClick = this.handleGoButtonClick.bind(this);
   }
 
   handleVideoUpload(videoFile) {
@@ -31,13 +33,20 @@ export default class App extends React.Component {
     })
   }
 
+  handleGoButtonClick(clickEvent) {
+    console.log("GOOOOO!")
+  }
+
   render() {
     return (
-      <Container maxWidth="xl" minWidth="1280">
+      <Container sx={{ maxWidth: "xl", minWidth: 1280}}>
+        <Stack direction="row" sx={{ mb: 2 }}>
+          <Upload label="Upload Video" width="12em" accept="video/webm" labelId="video-upload" onUploadFinished={this.handleVideoUpload} />
+          <Upload label="Upload Subtitle" width="12em" accept="text/vtt" labelId="subtitle-upload" onUploadFinished={this.handleSubtitleUpload} />
+          <Fab color="primary" onClick={this.handleGoButtonClick}>GO</Fab>
+        </Stack>
         <Box>
           <Video videoURL={this.state.videoURL} subtitleURL={this.state.subtitleURL} />
-          <VideoUpload onVideoUpload={this.handleVideoUpload} />
-          <SubtitleUpload onSubtitleUpload={this.handleSubtitleUpload} />
         </Box>
       </Container>
     );
