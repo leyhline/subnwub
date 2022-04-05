@@ -1,4 +1,4 @@
-# subnwub
+# subnwub - subtitle editor
 
 Subtitle editor for the browser, supporting [WebVTT](https://w3c.github.io/webvtt/) for captions and [WebM](https://www.webmproject.org/) for video.
 
