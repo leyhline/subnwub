@@ -1,44 +1,30 @@
-# Create React App example
+# subnwub
 
-## How to use
+Subtitle editor for the browser, supporting [WebVTT](https://w3c.github.io/webvtt/) for captions and [WebM](https://www.webmproject.org/) for video.
 
-Download the example [or clone the repo](https://github.com/mui/material-ui):
+## Motivation
 
-<!-- #default-branch-switch -->
+This project is mainly for learning purposes:
 
-```sh
-curl https://codeload.github.com/mui/material-ui/tar.gz/master | tar -xz --strip=2 material-ui-master/examples/create-react-app
-cd create-react-app
-```
+1. Get familiar with [React](https://reactjs.org/)
+2. Integrate [MUI (Material UI)](https://mui.com/) for a fancy look
+3. Learn about HTML5 media APIs
 
-Install it and run:
+Furthermore, editing WebVTT captions in the browser has additional advantages. It is a format for the web, hence classical desktop players like [VLC](https://www.videolan.org/) and [mpv](https://mpv.io/) as well as popular tools ([FFmpeg](https://ffmpeg.org/)) currently lack support for many of its features. I also would not want to ship a whole browser with my media player. Furthermore, it is just a draft and even browsers do not fully support the whole specification. I hope to easily test out the browser's functionality in an interactive manner.
 
-```sh
-npm install
-npm start
-```
+Currently, my main interest is support for Japanese subtitles:
+* Furigana support (using `ruby` and `rt` tags)
+* Vertical text from right to left (even though this is only for literature, not for digital media)
 
-or:
+## Goals
 
-<!-- #default-branch-switch -->
+1. Upload a video
+2. Upload captions
+3. Synchroize video playback and captions table
+4. Edit captures and update video accordingly
 
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui/material-ui/tree/master/examples/create-react-app)
+## Outlook
 
-<!-- #default-branch-switch -->
+Since this will a be a static SPA with user-provided data it's a good candidate to convert it to a [Progressive Web App (PWA)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps). Maybe also look into persistence?
 
-[![Edit on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/mui/material-ui/tree/master/examples/create-react-app)
-
-## The idea behind the example
-
-<!-- #default-branch-switch -->
-
-This example demonstrates how you can use [Create React App](https://github.com/facebookincubator/create-react-app).
-It includes `@mui/material` and its peer dependencies, including `emotion`, the default style engine in MUI v5.
-If you prefer, you can [use styled-components instead](https://mui.com/guides/interoperability/#styled-components).
-
-## What's next?
-
-<!-- #default-branch-switch -->
-
-You now have a working example project.
-You can head back to the documentation, continuing browsing it from the [templates](https://mui.com/getting-started/templates/) section.
+Furthermore, for more interesting media manipulations I would need to look more into [WebAssembly](https://webassembly.org/).
